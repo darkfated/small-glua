@@ -30,3 +30,7 @@ Move
 ## Fated Paint
 Creates an in-game drawing editor. Draw, erase, edit canvas and more in the future.
 ![Main view](https://user-images.githubusercontent.com/49955245/211102982-f6468b0a-9a2d-4f14-8ca9-f9f81c456210.png)
+
+## Mantle MoonTab
+Tab written on the Mantle library for DarkRP
+![Main view](https://github.com/darkfated/small-glua/assets/49955245/a1b7c5b6-b928-4de4-a600-cff5149ca2d8)
