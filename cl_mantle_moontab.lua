@@ -183,5 +183,9 @@ hook.Add('ScoreboardHide', 'Mantle.MoonTab', function()
         MoonTab:Remove()
     end
 
+    if IsValid(Mantle.ui.menu_derma_menu) then
+        Mantle.ui.menu_derma_menu:Remove()
+    end
+
     return false
 end)
