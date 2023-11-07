@@ -114,7 +114,7 @@ local function Create()
             local function PlayerClick()
                 local DM = Mantle.ui.derma_menu()
                 DM:AddOption('Скопировать SteamID', function()
-                    print('Test')
+                    SetClipboardText(pl:SteamID())
                 end, 'icon16/disk.png')
                 DM:AddOption('Открыть профиль', function()
                     gui.OpenURL('https://steamcommunity.com/profiles/' .. pl:SteamID64())
@@ -178,6 +178,10 @@ end
 
 hook.Add('ScoreboardShow', 'Mantle.MoonTab', function()
     Create()
+
+    if IsValid(Mantle.ui.menu_derma_menu) then
+        Mantle.ui.menu_derma_menu:Remove()
+    end
 
     return false
 end)
