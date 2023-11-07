@@ -51,7 +51,7 @@ local function Create()
         local job_table = pl:getJobTable().name
 
         if !pl_table[pl:getJobTable().name] then
-            pl_table[pl:getJobTable().name] = {color = pl:getJobTable().color}
+            pl_table[pl:getJobTable().name] = {}
         end
 
         table.insert(pl_table[pl:getJobTable().name], pl)
@@ -73,11 +73,7 @@ local function Create()
     grid_players:SetRowHeight(panel_size)
 
     for job_name, job_players in pairs(pl_table) do
-        for pl_k, pl in pairs(job_players) do
-            if pl_k == 'color' then
-                continue
-            end
-            
+        for pl_k, pl in pairs(job_players) do 
             local ply_btn = vgui.Create('DButton', grid_players)
             ply_btn:SetSize(panel_size - 8, panel_size - 8)
             ply_btn:SetText('')
@@ -95,13 +91,21 @@ local function Create()
             local ply_time_icon = Material(ply_time_data[2])
 
             ply_btn.Paint = function(self, w, h)
-                draw.RoundedBox(8, 0, 0, w, h, Mantle.color.panel[2])
-                draw.RoundedBoxEx(8, 0, 0, w, h * 0.4 - 16, job_players.color, true, true, false, false)
-                draw.RoundedBox(8, w * 0.25 - 8, h * 0.25 - 8, w * 0.5 + 16, h * 0.5 + 16, Mantle.color.panel[2])
-                draw.RoundedBoxEx(8, 0, h * 0.4 - 16, h * 0.25 - 8, 16, job_players.color, false, false, false, true)
-                draw.RoundedBoxEx(8, h * 0.75 + 8, h * 0.4 - 16, h * 0.25 - 8, 16, job_players.color, false, false, true, false)
+                if !IsValid(pl) then
+                    ply_btn:Remove()
+                    
+                    return
+                end
 
-                draw.SimpleText(pl:getJobTable().name or 'Загрузка...', 'Fated.18', w * 0.5, h * 0.1 - 1, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+                local job_table = pl:getJobTable()
+
+                draw.RoundedBox(8, 0, 0, w, h, Mantle.color.panel[2])
+                draw.RoundedBoxEx(8, 0, 0, w, h * 0.4 - 16, job_table.color, true, true, false, false)
+                draw.RoundedBox(8, w * 0.25 - 8, h * 0.25 - 8, w * 0.5 + 16, h * 0.5 + 16, Mantle.color.panel[2])
+                draw.RoundedBoxEx(8, 0, h * 0.4 - 16, h * 0.25 - 8, 16, job_table.color, false, false, false, true)
+                draw.RoundedBoxEx(8, h * 0.75 + 8, h * 0.4 - 16, h * 0.25 - 8, 16, job_table.color, false, false, true, false)
+
+                draw.SimpleText(job_table.name or 'Загрузка...', 'Fated.18', w * 0.5, h * 0.1 - 1, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
                 draw.SimpleText(pl:Name(), 'Fated.15', w * 0.5, h * 0.815 - 2, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
 
                 draw.SimpleText(ply_time .. ' ч.', 'Fated.15', w * 0.05 + 16, h * 0.9 + 2, Color(200, 200, 200), TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
@@ -110,7 +114,7 @@ local function Create()
             local function PlayerClick()
                 local DM = Mantle.ui.derma_menu()
                 DM:AddOption('Скопировать SteamID', function()
-                    SetClipboardText(pl:SteamID())
+                    print('Test')
                 end, 'icon16/disk.png')
                 DM:AddOption('Открыть профиль', function()
                     gui.OpenURL('https://steamcommunity.com/profiles/' .. pl:SteamID64())
@@ -181,10 +185,6 @@ end)
 hook.Add('ScoreboardHide', 'Mantle.MoonTab', function()
     if IsValid(MoonTab) then
         MoonTab:Remove()
-    end
-
-    if IsValid(Mantle.ui.menu_derma_menu) then
-        Mantle.ui.menu_derma_menu:Remove()
     end
 
     return false
