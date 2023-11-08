@@ -52,6 +52,10 @@ local function Create()
 	end
 
 	for v, pl in pairs(player.GetAll()) do
+		if !IsValid(pl) or pl:getDarkRPVar('hide') then
+			continue
+		end
+
 		local job_table = pl:getJobTable()
 
 		if !sort_table_job[job_table.category][job_table.name] then
@@ -94,6 +98,7 @@ local function Create()
                 end
 
                 local ply_time_icon = Material(ply_time_data[2])
+                local color_shadow = Color(0, 0, 0, 100)
 
                 ply_btn.Paint = function(self, w, h)
                     if !IsValid(pl) then
@@ -110,8 +115,8 @@ local function Create()
                     draw.RoundedBoxEx(8, 0, h * 0.4 - 16, h * 0.25 - 8, 16, job_table.color, false, false, false, true)
                     draw.RoundedBoxEx(8, h * 0.75 + 8, h * 0.4 - 16, h * 0.25 - 8, 16, job_table.color, false, false, true, false)
 
-                    draw.SimpleText(job_table.name or 'Загрузка...', 'Fated.18', w * 0.5, h * 0.1 - 1, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
-                    draw.SimpleText(pl:Name(), 'Fated.15', w * 0.5, h * 0.815 - 2, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+                    draw.SimpleText(pl:Name(), 'Fated.18', w * 0.5, h * 0.1 - 1, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+                    draw.SimpleText(job_table.name or 'Загрузка...', 'Fated.15', w * 0.5, h * 0.815 - 2, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
 
                     draw.SimpleText(ply_time .. ' ч.', 'Fated.15', w * 0.05 + 16, h * 0.9 + 2, Color(200, 200, 200), TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
                 end
