@@ -52,10 +52,6 @@ local function Create()
 	end
 
 	for v, pl in pairs(player.GetAll()) do
-		if !IsValid(pl) or pl:getDarkRPVar('hide') then
-			continue
-		end
-
 		local job_table = pl:getJobTable()
 
 		if !sort_table_job[job_table.category][job_table.name] then
@@ -98,7 +94,6 @@ local function Create()
                 end
 
                 local ply_time_icon = Material(ply_time_data[2])
-                local color_shadow = Color(0, 0, 0, 100)
 
                 ply_btn.Paint = function(self, w, h)
                     if !IsValid(pl) then
