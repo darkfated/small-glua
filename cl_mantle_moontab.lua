@@ -65,6 +65,7 @@ local function Create()
     Mantle.ui.sp(MoonTab.sp)
     MoonTab.sp:Dock(FILL)
     MoonTab.sp:DockMargin(4, 4, 4, 4)
+    
 
     local grid_players = vgui.Create('DGrid', MoonTab.sp)
     grid_players:Dock(TOP)
@@ -180,21 +181,25 @@ local function Create()
             end
         end
     end
+
+    MoonTab.sp:GetVBar():AnimateTo(MoonTabScrollPos, 0.01, 0)
 end
 
 hook.Add('ScoreboardShow', 'Mantle.MoonTab', function()
     Create()
-
-    if IsValid(Mantle.ui.menu_derma_menu) then
-        Mantle.ui.menu_derma_menu:Remove()
-    end
 
     return false
 end)
 
 hook.Add('ScoreboardHide', 'Mantle.MoonTab', function()
     if IsValid(MoonTab) then
+        MoonTabScrollPos = MoonTab.sp:GetVBar():GetScroll()
+
         MoonTab:Remove()
+    end
+
+    if IsValid(Mantle.ui.menu_derma_menu) then
+        Mantle.ui.menu_derma_menu:Remove()
     end
 
     return false
