@@ -185,7 +185,7 @@ local function Create()
         end
     end
 
-    MoonTab.sp:GetVBar():AnimateTo(IsValid(MoonTabScrollPos) and MoonTabScrollPos or 0, 0.01, 0)
+    MoonTab.sp:GetVBar():AnimateTo(MoonTabScrollPos or 0, 0.01, 0)
 end
 
 hook.Add('ScoreboardShow', 'Mantle.MoonTab', function()
