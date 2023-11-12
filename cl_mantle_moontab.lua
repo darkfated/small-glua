@@ -39,6 +39,10 @@ local function Create()
         end
     end
 
+    if !MoonTabScrollPos then
+        MoonTabScrollPos = 0
+    end
+
     MoonTab.title = vgui.Create('DButton', MoonTab)
     MoonTab.title:SetSize(MoonTab:GetWide() * 0.5, 24)
     MoonTab.title:SetPos(MoonTab:GetWide() * 0.25, 0)
