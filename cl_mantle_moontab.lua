@@ -206,7 +206,7 @@ local function Create()
                     ply_btn.rank:SetPos(ply_btn:GetWide() * 0.75 + 18, ply_btn:GetTall() * 0.9 - 5)
                     ply_btn.rank:SetText('')
                     
-                    local rank_table = table_ranks[pl:GetUserGroup()]
+                    local rank_table = table_ranks[pl:GetUserGroup()] and table_ranks[pl:GetUserGroup()] or table_ranks['user']
                     local rank_icon = Material(rank_table[2])
                     
                     ply_btn.rank:SetTooltip(rank_table[1])
