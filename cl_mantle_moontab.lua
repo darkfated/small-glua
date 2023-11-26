@@ -112,6 +112,10 @@ local function Create()
         for job_cat, pl_table in pairs(sort_table_job) do
             for job_name, job_players in pairs(pl_table) do
                 for pl_k, pl in pairs(job_players) do
+                    if !IsValid(pl) then
+                        continue
+                    end
+
                     if !StringInString(filter_text, pl:Name()) and !StringInString(filter_text, pl:getDarkRPVar('job')) then
                         continue
                     end
