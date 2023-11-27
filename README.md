@@ -2,12 +2,12 @@
 *It makes no sense to put them in separate repositories, because they are either made in a single file, or are experimental in nature*
 
 List of available:
-- [fopt](https://github.com/darkfated/small-glua/blob/master/cl_fopt.lua)
-- [Mantle MoonTab](https://github.com/darkfated/small-glua/blob/master/cl_mantle_moontab.lua)
-- [Games](https://github.com/darkfated/small-glua/blob/master/cl_games.lua)
-- [StartMenu](https://github.com/darkfated/small-glua/blob/master/cl_startmenu.lua)
-- [Fated ContextMenu](https://github.com/darkfated/small-glua/blob/master/cl_fated_contextmenu.lua)
-- [Fated Paint](https://github.com/darkfated/small-glua/blob/master/cl_fated_paint.lua)
+- [fopt](#fopt)
+- [Mantle MoonTab](#mantle-moontab)
+- [Games](#games)
+- [StartMenu](#startmenu)
+- [Fated ContextMenu](#fated-contextmenu)
+- [FatedPaint](#fated-paint)
 
 ## [fopt](https://github.com/darkfated/small-glua/blob/master/cl_fopt.lua)
 Optimization with the possibility of regulation
