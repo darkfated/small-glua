@@ -13,7 +13,7 @@ List of available:
 Optimization with the possibility of regulation
 
 ## [Mantle MoonTab](https://github.com/darkfated/small-glua/blob/master/cl_mantle_moontab.lua)
-Tab written on the Mantle library for DarkRP
+Tab written on the Mantle library for DarkRP. To work, also [download Mantle](https://github.com/darkfated/mantle)
 
 <img src="https://github.com/darkfated/small-glua/assets/49955245/a1b7c5b6-b928-4de4-a600-cff5149ca2d8" width="600" alt="Main view">
 
