@@ -28,9 +28,12 @@ local function Close()
     end
 end
 
+local menu_width, menu_tall = 1200, 600
+local scrw, scrh = ScrW(), ScrH()
+
 local function Create()
     MoonTab = vgui.Create('DFrame')
-    Mantle.ui.frame(MoonTab, 'Количество игроков: ' .. #player.GetAll() .. ' из ' .. game.MaxPlayers(), Mantle.func.w(1200), Mantle.func.h(600), false)
+    Mantle.ui.frame(MoonTab, 'Количество игроков: ' .. #player.GetAll() .. ' из ' .. game.MaxPlayers(), math.Clamp(menu_width, 0, scrw), math.Clamp(menu_tall, 0, scrh), false)
     MoonTab:Center()
     MoonTab:MakePopup()
     MoonTab.OnKeyCodePressed = function(self, key)
