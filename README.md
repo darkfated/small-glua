@@ -5,7 +5,6 @@ _It makes no sense to put them in separate repositories, because they are either
 List of available:
 
 -   [fopt](#fopt)
--   [Mantle MoonTab](#mantle-moontab)
 -   [Games](#games)
 -   [StartMenu](#startmenu)
 -   [Fated ContextMenu](#fated-contextmenu)
