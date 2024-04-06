@@ -4,11 +4,11 @@ _It makes no sense to put them in separate repositories, because they are either
 
 List of available:
 
--   [fopt](#fopt)
--   [Games](#games)
--   [StartMenu](#startmenu)
--   [Fated ContextMenu](#fated-contextmenu)
--   [FatedPaint](#fated-paint)
+- [fopt](#fopt)
+- [Games](#games)
+- [StartMenu](#startmenu)
+- [Fated ContextMenu](#fated-contextmenu)
+- [FatedPaint](#fated-paint)
 
 ## [fopt](https://github.com/darkfated/small-glua/blob/master/cl_fopt.lua)
 
